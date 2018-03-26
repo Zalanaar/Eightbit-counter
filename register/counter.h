@@ -10,7 +10,7 @@ SC_MODULE(eightbit_register_counter) {
 	sc_out<sc_uint<8> > register_out;
 
 
-	sc_signal<sc_uint<8> > myregister;
+	sc_signal<sc_uint<8> > mycounter;
 
 
 	void register_store();
@@ -31,6 +31,6 @@ SC_MODULE(eightbit_register_counter) {
 		SC_CTHREAD(register_store, clock.pos());
 		async_reset_signal_is(reset, true);
 		SC_METHOD(data_out_method);
-		sensitive << myregister;
+		sensitive << mycounter;
 	}
 };

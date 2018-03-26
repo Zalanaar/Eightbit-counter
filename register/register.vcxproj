@@ -132,6 +132,9 @@
   <ItemGroup>
     <ClInclude Include="counter.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="counter.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
