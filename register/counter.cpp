@@ -16,6 +16,7 @@ void eightbit_register_counter::register_store() {
 			{
 				mycounter = mycounter.read();
 				cout << "@" << sc_time_stamp() << ":Load -> " << mycounter << endl;
+				wait();
 			}
 
 		}

@@ -7,6 +7,7 @@ SC_MODULE(eightbit_register_counter) {
 	sc_in <bool> reset;
 	sc_in <bool> load;
 	sc_in <bool> synch_reset;
+	sc_in <sc_uint<8> > register_in;
 	sc_out<sc_uint<8> > register_out;
 
 
@@ -23,6 +24,7 @@ SC_MODULE(eightbit_register_counter) {
 		reset("reset"),
 		load("load"),
 		synch_reset("synch_reset"),
+		register_in("register_in"),
 		register_out("register_out")
 
 	{

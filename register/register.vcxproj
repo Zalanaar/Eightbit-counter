@@ -70,12 +70,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ReferencePath>C:\SystemC\systemc-2.3.2\src;$(ReferencePath)</ReferencePath>
+    <ReferencePath>$(ReferencePath)</ReferencePath>
     <LibraryPath>C:\SystemC\systemc-2.3.2\msvc10\SystemC\x64\Debug;$(LibraryPath)</LibraryPath>
     <IncludePath>C:\SystemC\systemc-2.3.2\src;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ReferencePath>C:\SystemC\systemc-2.3.2\src;$(ReferencePath)</ReferencePath>
+    <ReferencePath>$(ReferencePath)</ReferencePath>
     <LibraryPath>C:\SystemC\systemc-2.3.2\msvc10\SystemC\x64\Debug;$(LibraryPath)</LibraryPath>
     <IncludePath>C:\SystemC\systemc-2.3.2\src;$(IncludePath)</IncludePath>
   </PropertyGroup>
@@ -85,9 +85,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>/vmg %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
-      <AdditionalOptions>/vmg %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>SystemC.lib %(AdditionalOptions)</AdditionalOptions>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -96,9 +98,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>/vmg %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
-      <AdditionalOptions>/vmg %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>SystemC.lib %(AdditionalOptions)</AdditionalOptions>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -131,9 +135,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="counter.h" />
+    <ClInclude Include="register.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="counter.cpp" />
+    <ClCompile Include="register.cpp" />
+    <ClCompile Include="testbench.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
