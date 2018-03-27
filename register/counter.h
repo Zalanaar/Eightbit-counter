@@ -1,7 +1,7 @@
 #include <systemc.h>
 
 
-SC_MODULE(eightbit_register_counter) {
+SC_MODULE(eightbit_counter) {
 
 	sc_in_clk clock;
 	sc_in <bool> reset;
@@ -19,7 +19,7 @@ SC_MODULE(eightbit_register_counter) {
 	void data_out_method();
 
 
-	SC_CTOR(eightbit_register_counter) :
+	SC_CTOR(eightbit_counter) :
 		clock("clock"),
 		reset("reset"),
 		load("load"),

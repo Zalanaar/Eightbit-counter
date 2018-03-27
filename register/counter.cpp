@@ -1,6 +1,6 @@
 #include "counter.h"
 
-void eightbit_register_counter::register_store() {
+void eightbit_counter::register_store() {
 
 	mycounter = 0;
 	wait();
@@ -27,7 +27,7 @@ void eightbit_register_counter::register_store() {
 	}
 }
 
-void eightbit_register_counter::data_out_method() {
+void eightbit_counter::data_out_method() {
 	register_out = mycounter;
 }
 

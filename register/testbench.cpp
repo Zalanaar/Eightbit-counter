@@ -1,5 +1,6 @@
 #include <systemc.h>
 #include "counter.h"
+#include <conio.h>
 
 #define soft_assert(signal, expected) \
 	if(signal.read() != expected) { \
@@ -18,7 +19,7 @@ int sc_main(int argc, char* argv[]) {
 	sc_signal<sc_uint<8> > register_out;
 
 	//connect the DUT
-	eightbit_register_counter test_counter("counter testing");
+	eightbit_counter test_counter("counter testing");
 	test_counter.clock(clock);
 	test_counter.reset(reset);
 	test_counter.load(load);
@@ -40,31 +41,32 @@ int sc_main(int argc, char* argv[]) {
 
 
 	synch_reset = 1; //Asserting reset
-	cout << "@" << sc_time_stamp() << "Asserting reset\n" << endl;
+	cout << "@" << sc_time_stamp() << ":Asserting reset" << "\n" << endl;
 
 	sc_start(8, SC_NS);
 
 	synch_reset = 0; //De-Asserting reset
-	cout << "@" << sc_time_stamp() << "De-Asserting reset\n" << endl;
+	cout << "@" << sc_time_stamp() << ":De-Asserting reset" << "\n" << endl;
 
 	sc_start(4, SC_NS);
 
 	load = 1;
 	sc_uint<8> data = 128;
 	register_in = data;
-	cout << "@" << sc_time_stamp() << "Start Loading/n " << endl;
+	cout << "@" << sc_time_stamp() << ":Start Loading " << "\n"<< endl;
 	sc_start(32, SC_NS);
 
 	load = 0;
-	cout << "@" << sc_time_stamp() << "End Loading/n" << endl;
+	cout << "@" << sc_time_stamp() << ":End Loading" << "\n" << endl;
 	sc_start(64, SC_NS);
 
 	synch_reset = 1; //Assering reset
-	cout << "@" << sc_time_stamp() << "Asserting reset/n" << endl;
+	cout << "@" << sc_time_stamp() << ":Asserting reset" << "\n" << endl;
 	sc_start(1, SC_NS);
 	assert(register_out.read() == 0);
 	sc_start(5, SC_NS);
-	cout << "@" << sc_time_stamp() << "Termimate simulation/n" << endl;
+	cout << "@" << sc_time_stamp() << ":Termimate simulation" << "\n" << endl;
+	_getch();
 
 	sc_close_vcd_trace_file(wf);
 	return 0;

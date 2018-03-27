@@ -135,11 +135,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="counter.h" />
-    <ClInclude Include="register.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="counter.cpp" />
-    <ClCompile Include="register.cpp" />
     <ClCompile Include="testbench.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
